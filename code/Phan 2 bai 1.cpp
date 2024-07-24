@@ -30,10 +30,20 @@ void XuatMaTran(int a[][100], int n, int m)
         printf("\n");
     }
 }
+void sumdong(int m, int n, int a[][100]) {
+    for (int i = 0; i < n; i++) {
+        int sum = 0;
+        for (int j = 0; j < m; j++) {
+            sum += a[i][j];
+        }
+        printf("\n Tong dong  %d: %d\n", i, sum);
+    }
+}
 int main()
 {
     int lc;
     int a[100][100];
+    int m, n;
     do {
         menu();
         printf("\nMoi ban chon ");
@@ -42,7 +52,6 @@ int main()
         {
         case 1:
         {
-            int m, n;
             printf("nhap so hang m = ");
             scanf_s("%d", &m);
             printf("nhap so cot n = ");
@@ -50,6 +59,11 @@ int main()
             printf("nhap vao ma tran:\n");
             NhapMaTran(a, n, m);
             XuatMaTran(a, n, m);
+        }break;
+        {
+            printf("Tong gia tri tung dong la ");
+            sumdong(m, n, a);
+
         }break;
         }
     } while (lc < 8);
