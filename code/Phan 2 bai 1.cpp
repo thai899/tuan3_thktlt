@@ -86,6 +86,23 @@ void xuatphantumax(int m, int n, int a[][100]) {
     }
     printf("Phan tu max trong mang la %d ", max);
 }
+void xuatdongchan(int m, int n, int a[][100]) {
+    for (int i = 0; i < n; i++) {
+        int isEvenRow = 1;
+        for (int j = 0; j < m; j++) {
+            if (a[i][j] % 2 != 0) {
+                isEvenRow = 0;
+                break;
+            }
+        }
+        if (isEvenRow == 1) {
+            for (int j = 0; j < n; j++) {
+                printf("%d ", a[i][j]);
+            }
+        }
+        
+        }
+}
 int main()
 {
     int lc;
@@ -125,6 +142,11 @@ int main()
         case 5 :
         {
             xuatphantumax(m, n, a);
+        }break;
+        case 6 :
+        {
+            printf("Dong chi so chan la ");
+            xuatdongchan(m, n, a);
         }break;
         }
     } while (lc < 8);
