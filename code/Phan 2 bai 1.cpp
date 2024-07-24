@@ -39,6 +39,17 @@ void sumdong(int m, int n, int a[][100]) {
         printf("\n Tong dong  %d: %d\n", i, sum);
     }
 }
+void maxcot(int m, int n, int a[][100]) {
+    for (int j = 0; j < n; j++) {
+        int max = a[0][j];
+        for (int i = 1; i < m; i++) {
+            if (a[i][j] > max) {
+                max = a[i][j];
+            }
+        }
+        printf("\nMax cot  %d: %d", j, max);
+    }
+}
 int main()
 {
     int lc;
@@ -60,10 +71,16 @@ int main()
             NhapMaTran(a, n, m);
             XuatMaTran(a, n, m);
         }break;
+        case 2 :
         {
             printf("Tong gia tri tung dong la ");
             sumdong(m, n, a);
 
+        }break;
+        case 3:
+        {
+            printf("\nMax tung cot la ");
+            maxcot(m, n, a);
         }break;
         }
     } while (lc < 8);
