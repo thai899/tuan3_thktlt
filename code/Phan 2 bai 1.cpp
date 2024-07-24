@@ -10,7 +10,7 @@ void menu()
     printf("\n5.Xuat cac phan tu cuc dai");
     printf("\n6.Xuat dong chi chua so chan");
     printf("\n7.Sap xep mang a tang theo tung dong");
-}void NhapMaTran(int a[][100], int n, int m)
+}void NhapMaTran(int a[][100], int m, int n)
 {
     srand(time(NULL));
     for (int i = 0; i < n; i++) {
@@ -21,11 +21,11 @@ void menu()
     }
 }
 
-void XuatMaTran(int a[][100], int n, int m)
+void XuatMaTran(int a[][100], int m, int n)
 {
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < m; j++)
             printf("%d\t", a[i][j]);
         printf("\n");
     }
@@ -50,6 +50,31 @@ void maxcot(int m, int n, int a[][100]) {
         printf("\nMax cot  %d: %d", j, max);
     }
 }
+void printbien(int m, int n, int a[][100]) {
+    printf("Bien tren : ");
+    for (int j = 0; j < n; j++) {
+        printf("%d ", a[0][j]);
+    }
+    printf("\n");
+
+    printf("Bien duoi : ");
+    for (int j = 0; j < n; j++) {
+        printf("%d ", a[m - 1][j]);
+    }
+    printf("\n");
+
+    printf("Bien trai : ");
+    for (int i = 0; i < m; i++) {
+        printf("%d ", a[i][0]);
+    }
+    printf("\n");
+
+    printf("Bien phai: ");
+    for (int i = 0; i < m; i++) {
+        printf("%d ", a[i][n - 1]);
+    }
+    printf("\n");
+}
 int main()
 {
     int lc;
@@ -68,8 +93,8 @@ int main()
             printf("nhap so cot n = ");
             scanf_s("%d", &n);
             printf("nhap vao ma tran:\n");
-            NhapMaTran(a, n, m);
-            XuatMaTran(a, n, m);
+            NhapMaTran(a, m, n);
+            XuatMaTran(a, m, n);
         }break;
         case 2 :
         {
@@ -81,6 +106,10 @@ int main()
         {
             printf("\nMax tung cot la ");
             maxcot(m, n, a);
+        }break;
+        case 4:
+        {
+            printbien(m, n, a);
         }break;
         }
     } while (lc < 8);
