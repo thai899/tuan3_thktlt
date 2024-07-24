@@ -75,6 +75,17 @@ void printbien(int m, int n, int a[][100]) {
     }
     printf("\n");
 }
+void xuatphantumax(int m, int n, int a[][100]) {
+    int max = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++)
+        {
+            if (a[i][j] > max)
+                max = a[i][j];
+        }
+    }
+    printf("Phan tu max trong mang la %d ", max);
+}
 int main()
 {
     int lc;
@@ -110,6 +121,10 @@ int main()
         case 4:
         {
             printbien(m, n, a);
+        }break;
+        case 5 :
+        {
+            xuatphantumax(m, n, a);
         }break;
         }
     } while (lc < 8);
