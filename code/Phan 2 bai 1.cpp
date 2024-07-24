@@ -103,6 +103,19 @@ void xuatdongchan(int m, int n, int a[][100]) {
         
         }
 }
+void tangdong(int m, int n, int a[][100]) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n - 1; j++) {
+            for (int k = j + 1; k < n; k++) {
+                if (a[i][j] > a[i][k]) {
+                    int temp = a[i][j];
+                    a[i][j] = a[i][k];
+                    a[i][k] = temp;
+                }
+            }
+        }
+    }
+}
 int main()
 {
     int lc;
@@ -147,6 +160,12 @@ int main()
         {
             printf("Dong chi so chan la ");
             xuatdongchan(m, n, a);
+        }break;
+        case 7:
+        {
+            printf("\nTang dong:\n");
+            tangdong(m, n, a);
+            XuatMaTran(a, m, n);
         }break;
         }
     } while (lc < 8);
