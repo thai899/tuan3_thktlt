@@ -54,6 +54,16 @@ void xuatduongsongsong(int m,int n, int a[][100]) {
         printf("\n");
     }
 }
+int phantumaxthuoctamgiacduongcheochinh(int n, int m, int a[][100]) {
+    int max = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i][i] > max)
+        {
+            max = a[i][i];
+        }
+    }
+    return max;
+}
 int main()
 {
     int a[100][100];
@@ -82,6 +92,10 @@ int main()
         {
             printf("\nDuong song song voi cheo chinh");
             xuatduongsongsong(m, n, a);
+        }break;
+        case 4:
+        {
+            printf("\nPhan tu max tren duong tam giac cheo chinh la : %d ", phantumaxthuoctamgiacduongcheochinh(m, n, a));
         }break;
         }
     } while (lc);
