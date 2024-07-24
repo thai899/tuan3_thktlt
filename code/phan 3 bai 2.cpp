@@ -102,6 +102,28 @@ void zigzagSort(int n, int a[][100]) {
         }
     }
 }
+void tangdanduongcheochinh(int n, int a[][100]) {
+
+    int diag[5];
+    for (int i = 0; i < n; i++) {
+        diag[i] = a[i][i];
+    }
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (diag[i] > diag[j]) {
+                int temp = diag[i];
+                diag[i] = diag[j];
+                diag[j] = temp;
+            }
+        }
+    }
+
+
+    for (int i = 0; i < n; i++) {
+        a[i][i] = diag[i];
+    }
+}
 int main()
 {
     int a[100][100];
@@ -139,6 +161,13 @@ int main()
         {
             printf("\nZigzag sorted matrix:\n");
             zigzagSort(n, a);
+            XuatMaTran(a, m, n);
+
+        }break;
+        case 6:
+        {
+            printf("Duong cheo chinh tang dan:\n ");
+            tangdanduongcheochinh(n, a);
             XuatMaTran(a, m, n);
 
         }break;
