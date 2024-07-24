@@ -29,6 +29,13 @@ void XuatMaTran(int a[][100], int m, int n)
         printf("\n");
     }
 }
+void xuatduongcheoching(int m, int n, int a[][100]) {
+    printf("Main diagonal: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i][i]);
+    }
+    printf("\n");
+}
 int main()
 {
     int a[100][100];
@@ -47,6 +54,11 @@ int main()
             scanf_s("%d", &n);
             NhapMaTran(a, m, n);
             XuatMaTran(a, m, n);
+        }break;
+        case 2:
+        {
+            printf("\nDuong cheo chinh ");
+            xuatduongcheoching(m, n, a);
         }break;
         }
     } while (lc);
