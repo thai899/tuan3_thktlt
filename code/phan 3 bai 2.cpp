@@ -64,6 +64,44 @@ int phantumaxthuoctamgiacduongcheochinh(int n, int m, int a[][100]) {
     }
     return max;
 }
+void zigzagSort(int n, int a[][100]) {
+    int x = n * n;
+    int temp[x];
+    int index = 0;
+
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            temp[index++] = a[i][j];
+        }
+    }
+
+
+    for (int i = 0; i < x - 1; i++) {
+        for (int j = i + 1; j < x; j++) {
+            if (temp[i] > temp[j]) {
+                int t = temp[i];
+                temp[i] = temp[j];
+                temp[j] = t;
+            }
+        }
+    }
+
+
+    index = 0;
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = temp[index++];
+            }
+        }
+        else {
+            for (int j = n - 1; j >= 0; j--) {
+                a[i][j] = temp[index++];
+            }
+        }
+    }
+}
 int main()
 {
     int a[100][100];
@@ -96,6 +134,13 @@ int main()
         case 4:
         {
             printf("\nPhan tu max tren duong tam giac cheo chinh la : %d ", phantumaxthuoctamgiacduongcheochinh(m, n, a));
+        }break;
+        case 5:
+        {
+            printf("\nZigzag sorted matrix:\n");
+            zigzagSort(n, a);
+            XuatMaTran(a, m, n);
+
         }break;
         }
     } while (lc);
