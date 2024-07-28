@@ -58,6 +58,10 @@ void xoakhoangtrangthua(char* s) {
         x--;
     s[x] = '\0';
 }
+bool findName(char* fullName, char* name) {
+    return strstr(fullName, name) != NULL;
+}
+
 
 
 int main() {
@@ -92,6 +96,17 @@ int main() {
             printf("Chuoi sau khi chuan hoa: %s\n", s);
 
         }break;
+        case 4:
+        {
+            printf("Nhap vao ho ten:\n ");
+            inputString(s, sizeof(s));
+            printf("Nhap vao ho ten can tim:\n  ");
+            inputString(name, sizeof(name));
+            if (findName(s, name))
+                printf("Ten \"%s\" ton tai trong chuoi ho ten.\n", name);
+            else
+                printf("Ten \"%s\" khong ton tai trong chuoi ho ten.\n", name);
+        }  break;
         }
     } while (lc < 7);
 
