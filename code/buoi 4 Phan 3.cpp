@@ -73,6 +73,21 @@ void catchuoi(char* fullName, char* lastName, char* firstName) {
         strcpy(firstName, fullName);
     }
 }
+void Timchuoi(char* T, char* P) {
+    int lenT = strlen(T);
+    int lenP = strlen(P);
+    int found = 0;
+
+    for (int i = 0; i <= lenT - lenP; i++) {
+        if (strncmp(&T[i], P, lenP) == 0) {
+            printf("Chuoi \"%s\" duoc tim thay o vi tri %d\n", P, i);
+            found = 1;
+        }
+    }
+
+    if (!found)
+        printf("Chuoi \"%s\" khong duoc tim trong chuoi T \n", P);
+}
 
 
 int main() {
@@ -125,6 +140,14 @@ int main() {
             catchuoi(s, lastName, firstName);
             printf("Ho lot: %s\n", lastName);
             printf("Ten: %s\n", firstName);
+        } break;
+        case 6:
+        {
+            printf("Nhap vao chuoi T: ");
+            inputString(s, sizeof(s));
+            printf("Nhap vao chuoi P: ");
+            inputString(P, sizeof(P));
+            Timchuoi(s, P);
         } break;
         }
     } while (lc < 7);
