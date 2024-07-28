@@ -30,6 +30,24 @@ bool ktso(char* s) {
     }
     return false;
 }
+void chuyenkytu(char* s) {
+    bool newWord = true;
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (isspace(s[i])) {
+            newWord = true;
+        }
+        else {
+            if (newWord && islower(s[i])) {
+                s[i] = toupper(s[i]);
+                newWord = false;
+            }
+            else if (!newWord && isupper(s[i])) {
+                s[i] = tolower(s[i]);
+            }
+        }
+    }
+}
+
 
 int main() {
     char s[100];
@@ -50,6 +68,13 @@ int main() {
             else
                 printf("Chuoi khong chua toan ky tu so.\n");
         }break;
+        case 2:
+        {
+            inputString(s, sizeof(s));
+            chuyenkytu(s);
+            printf("Chuoi sau khi chuyen doi: %s\n", s);
+        }
+        break;
         }
     } while (lc < 7);
 
