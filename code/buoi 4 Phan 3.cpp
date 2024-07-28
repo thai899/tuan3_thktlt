@@ -47,6 +47,17 @@ void chuyenkytu(char* s) {
         }
     }
 }
+void xoakhoangtrangthua(char* s) {
+    int i, x = 0;
+    for (i = 0; s[i]; i++) {
+        if (!isspace(s[i]) || (i > 0 && !isspace(s[i - 1]))) {
+            s[x++] = s[i];
+        }
+    }
+    if (x > 0 && isspace(s[x - 1]))
+        x--;
+    s[x] = '\0';
+}
 
 
 int main() {
@@ -75,6 +86,12 @@ int main() {
             printf("Chuoi sau khi chuyen doi: %s\n", s);
         }
         break;
+        case 3: {
+            inputString(s, sizeof(s));
+            xoakhoangtrangthua(s);
+            printf("Chuoi sau khi chuan hoa: %s\n", s);
+
+        }break;
         }
     } while (lc < 7);
 
