@@ -61,7 +61,18 @@ void xoakhoangtrangthua(char* s) {
 bool findName(char* fullName, char* name) {
     return strstr(fullName, name) != NULL;
 }
-
+void catchuoi(char* fullName, char* lastName, char* firstName) {
+    char* lastSpace = strrchr(fullName, ' ');
+    if (lastSpace != NULL) {
+        strcpy(firstName, lastSpace + 1);
+        *lastSpace = '\0';
+        strcpy(lastName, fullName);
+    }
+    else {
+        strcpy(lastName, "");
+        strcpy(firstName, fullName);
+    }
+}
 
 
 int main() {
@@ -107,6 +118,14 @@ int main() {
             else
                 printf("Ten \"%s\" khong ton tai trong chuoi ho ten.\n", name);
         }  break;
+        case 5:
+        {
+            printf("Nhap vao ho ten: ");
+            inputString(s, sizeof(s));
+            catchuoi(s, lastName, firstName);
+            printf("Ho lot: %s\n", lastName);
+            printf("Ten: %s\n", firstName);
+        } break;
         }
     } while (lc < 7);
 
